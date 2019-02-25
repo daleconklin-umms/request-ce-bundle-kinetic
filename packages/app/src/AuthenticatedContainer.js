@@ -135,13 +135,13 @@ const Authenticated = props => {
             render={route => (
               <LoginScreen>
                 {props.display === 'reset' ? (
-                  <ResetPasswordForm {...props} />
+                  <ResetPasswordForm {...props} routed={route.match.isExact} />
                 ) : props.display === 'reset-token' ? (
-                  <ResetTokenForm {...props} />
+                  <ResetTokenForm {...props} routed={route.match.isExact} />
                 ) : props.display === 'create-account' ? (
-                  <CreateAccountForm {...props} />
+                  <CreateAccountForm {...props} routed={route.match.isExact} />
                 ) : (
-                  <LoginForm {...props} />
+                  <LoginForm {...props} routed={route.match.isExact} />
                 )}
               </LoginScreen>
             )}

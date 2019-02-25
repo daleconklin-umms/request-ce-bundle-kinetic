@@ -14,15 +14,7 @@ export const Login = ({
   routed,
 }) => (
   <form className="login-form-container" onSubmit={handleLogin}>
-    <h3>
-      Sign In
-      <small>
-        {'or '}
-        <a role="button" tabIndex="0" onClick={toCreateAccount(routed)}>
-          Create Account
-        </a>
-      </small>
-    </h3>
+    <h3>Sign In</h3>
     <div
       style={{
         display: 'flex',
@@ -30,13 +22,13 @@ export const Login = ({
       }}
     >
       <div className="form-group">
-        <label htmlFor="email">Email Address</label>
+        <label htmlFor="email">UMMS Active Directory Username</label>
         <input
           type="text"
           autoFocus
           className="form-control"
           id="email"
-          placeholder="wally@kineticdata.com"
+          placeholder="wally"
           value={email}
           onChange={handleEmail}
         />
@@ -57,13 +49,6 @@ export const Login = ({
     <div className="button-group">
       <button className="btn btn-primary">Sign In</button>
       <hr />
-      <button
-        type="button"
-        className="btn btn-link"
-        onClick={toResetPassword(routed)}
-      >
-        Reset Password
-      </button>
     </div>
   </form>
 );
@@ -85,7 +70,7 @@ const tryAuthentication = ({
     handleAuthenticated();
 
     if (routed) {
-      push('/');
+      push('/kapps/services');
     }
   } catch (error) {
     setError('Invalid username or password.');
